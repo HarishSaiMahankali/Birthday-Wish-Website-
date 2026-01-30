@@ -3,7 +3,7 @@
 A special interactive birthday website template.
 
 ## 🔗 Live Demo
-**[Click here to view the website]([https://harishsaimahankali.github.io/Birthday-Wish-Website-/](https://harishsaimahankali.github.io/Birthday-Wish-Website-/))**
+**[Click here to view the website](https://harishsaimahankali.github.io/Birthday-Wish-Website-/)**
 
 *(Note: If the link is 404, please enable GitHub Pages in the repository settings. See "How to Deploy" below.)*
 
