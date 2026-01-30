@@ -1,0 +1,1003 @@
+:root {
+    --bg-color: #FDF6F7;
+    /* Soft Cream/Pinkish */
+    --text-color: #4A4A4A;
+    --accent-1: #FFB7B2;
+    /* Pastel Red/Pink */
+    --accent-2: #B5EAD7;
+    /* Pastel Green */
+    --accent-3: #C7CEEA;
+    /* Pastel Purple */
+    --accent-4: #FFDAC1;
+    /* Pastel Orange */
+    --glass-bg: rgba(255, 255, 255, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --font-main: 'Outfit', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    min-height: 100vh;
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Page Transitions */
+body.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Page 1: Entry */
+.entry-container {
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #fff, var(--bg-color));
+    overflow: hidden;
+}
+
+.text-sequence {
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 5;
+}
+
+.intro-line {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #666;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 0.5s;
+}
+
+.bold-year {
+    font-family: 'Outfit', sans-serif;
+    font-size: 8rem;
+    font-weight: 900;
+    line-height: 0.9;
+    background: linear-gradient(45deg, var(--accent-1), var(--accent-3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: scaleIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 1s;
+    margin: 10px 0;
+}
+
+.bold-desc {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--text-color);
+    line-height: 1.1;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s ease forwards 1.8s;
+}
+
+.outro-line {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #999;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 2.5s;
+}
+
+.enter-btn {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    background: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 3s;
+    font-weight: bold;
+    color: var(--text-color);
+    z-index: 10;
+}
+
+.enter-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Animations */
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Page 2: Memories */
+.memories-container {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* User provided background goes here */
+.memories-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    opacity: 1.0;
+    /* Full visibility for texture */
+}
+
+/* Floating Photos */
+.photo-scatter {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.polaroid {
+    position: absolute;
+    background: white;
+    padding: 10px 10px 40px 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transform: rotate(var(--r));
+    transition: transform 0.3s, z-index 0.3s;
+    width: 200px;
+    /* Fixed width for better control */
+}
+
+.polaroid:hover {
+    transform: scale(1.1) rotate(0deg);
+    z-index: 100;
+}
+
+.polaroid img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Specific positions (Desktop) - Pushed to corners */
+/* Right Cluster - Spaced out */
+.p2 {
+    top: 5%;
+    right: 5%;
+    --r: 10deg;
+    z-index: 5;
+}
+
+.p6 {
+    /* Blue dress - Middle Right */
+    top: 40%;
+    right: 15%;
+    /* Moved closer to edge */
+    --r: -5deg;
+    z-index: 6;
+}
+
+.p4 {
+    /* Pink dress - Bottom Right */
+    bottom: 5%;
+    right: 5%;
+    top: auto;
+    /* Reset top */
+    --r: 8deg;
+    z-index: 7;
+}
+
+/* Left Cluster - Spaced out */
+.p1 {
+    top: 5%;
+    left: 2%;
+    --r: -8deg;
+}
+
+.p5 {
+    /* Middle Left */
+    top: 45%;
+    bottom: auto;
+    left: 12%;
+    /* Moved little right */
+    --r: 4deg;
+}
+
+.p3 {
+    /* Bottom Left */
+    bottom: 5%;
+    left: 2%;
+    --r: 6deg;
+}
+
+/* Duplicates removed */
+
+/* Center Piece */
+.center-piece {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    z-index: 10;
+}
+
+/* Red Paper Background Effect */
+.red-paper-bg {
+    position: absolute;
+    top: -80px;
+    width: 480px;
+    height: 520px;
+    /* Much taller to cover HAPPY and BIRTHDAY */
+    background-color: #990000;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' opacity='0.5'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
+    z-index: -1;
+    transform: rotate(-3deg);
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.center-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: 4rem;
+    text-transform: uppercase;
+    line-height: 1;
+    z-index: 12;
+    color: #e3e3e3;
+    background: linear-gradient(to bottom, #f2f2f2 0%, #d4d4d4 50%, #aaaaaa 51%, #f2f2f2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 0px #666) drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
+    -webkit-text-stroke: 1px #888;
+}
+
+/* New Retro Camera Design (Realistic CoolPix - Gray Edition) */
+.camera-body {
+    background: linear-gradient(to bottom, #a0a0a0 0%, #666666 100%);
+    /* Darker Gray Body */
+    width: 420px;
+    /* Increased Size */
+    height: 300px;
+    /* Increased Size */
+    border-radius: 40px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    box-shadow:
+        inset 0 2px 10px rgba(255, 255, 255, 0.4),
+        0 20px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid #999;
+}
+
+.brand {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    left: auto;
+    font-family: 'Arial', sans-serif;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #ddd;
+    /* Light text for dark body */
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+}
+
+.brand::before {
+    content: "COOLPIX";
+}
+
+/* Lens Area */
+.camera-lens-decoration {
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+
+    /* Outer white ring */
+    background: #f0f0f0;
+    box-shadow:
+        5px 10px 20px rgba(0, 0, 0, 0.3),
+        inset 0 5px 10px rgba(255, 255, 255, 0.8),
+        0 0 0 2px #d0d0d0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Inner lens barrel and glass */
+.camera-lens-decoration::after {
+    content: '';
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    /* Complex gradient for realistic lens look */
+    background:
+        radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.7) 2%, transparent 8%),
+        radial-gradient(circle at 60% 60%, #1a1a2e 0%, #000 70%);
+    border: 8px solid #333;
+    box-shadow: inset 0 0 10px #000;
+}
+
+/* Central reflection/sensor hint */
+.camera-lens-decoration::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, #000044 0%, #000 100%);
+    z-index: 22;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Screen area */
+/* Screen area */
+.camera-screen {
+    width: 190px;
+    /* Bigger Screen */
+    height: 190px;
+    /* Bigger Square Screen */
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    position: absolute;
+    right: 30px;
+    top: 55px;
+    /* Centered vertically roughly */
+    box-shadow:
+        0 0 0 3px #333,
+        inset 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+.screen-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Reverted to contain */
+    opacity: 1.0;
+    background: #000;
+}
+
+.camera-controls {
+    display: none;
+}
+
+/* Decorative buttons */
+.camera-flash {
+    position: absolute;
+    top: 25px;
+    left: 85px;
+    width: 50px;
+    height: 14px;
+    background: #111;
+    /* Black Flash */
+    border-radius: 10px;
+    /* Lozenge shape */
+    box-shadow:
+        0 0 2px rgba(255, 255, 255, 0.3),
+        inset 0 1px 2px rgba(255, 255, 255, 0.2);
+    opacity: 1;
+    z-index: 21;
+}
+
+.shutter-btn {
+    position: absolute;
+    top: -12px;
+    right: 60px;
+    width: 50px;
+    height: 18px;
+    background: linear-gradient(#333, #000);
+    /* Black Shutter */
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #222;
+    border-bottom: none;
+    box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Stickers with proper outline */
+.center-sticker {
+    position: absolute;
+    font-size: 3rem;
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.3));
+    text-shadow:
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff;
+    /* Sticker border effect */
+    animation: float 4s infinite ease-in-out;
+    z-index: 15;
+}
+
+.s1 {
+    top: -20px;
+    left: -40px;
+    transform: rotate(-15deg);
+    animation-delay: 0s;
+    font-size: 4rem;
+}
+
+.s2 {
+    top: 10px;
+    right: -30px;
+    transform: rotate(20deg);
+    animation-delay: 1s;
+}
+
+.s3 {
+    bottom: -20px;
+    right: -20px;
+    transform: rotate(-10deg);
+    animation-delay: 2s;
+}
+
+.s4 {
+    bottom: 0px;
+    left: -40px;
+    transform: rotate(15deg);
+    animation-delay: 0.5s;
+    font-size: 3.5rem;
+}
+
+@media (max-width: 768px) {
+    .camera-body {
+        width: 280px;
+        height: 200px;
+    }
+
+    .camera-screen {
+        width: 180px;
+        height: 150px;
+    }
+
+    .center-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* Next Button */
+.next-btn {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    padding: 10px 25px;
+    background: var(--accent-1);
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    z-index: 20;
+    border: none;
+    cursor: pointer;
+}
+
+.next-btn:hover {
+    transform: translateX(5px);
+}
+
+/* Page 3: Talents */
+.talents-container {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem;
+    gap: 2rem;
+    align-items: center;
+}
+
+.talent-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2rem;
+}
+
+.talent-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    /* Reduced size for longer text */
+    color: var(--text-color);
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    background: linear-gradient(45deg, var(--accent-1), var(--accent-3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.talent-btn {
+    background: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+    text-align: left;
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.talent-btn:hover,
+.talent-btn.active {
+    background: var(--accent-3);
+    color: white;
+    transform: translateX(10px);
+}
+
+.talent-btn::after {
+    content: '→';
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s;
+}
+
+.talent-btn:hover::after,
+.talent-btn.active::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.media-display {
+    position: relative;
+    height: 80vh;
+    border-radius: 30px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s;
+}
+
+.content-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s;
+    z-index: 10;
+    padding: 2rem;
+    text-align: center;
+}
+
+.content-overlay.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.close-overlay {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #eee;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Slideshow Styling */
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Shows full image */
+    background: linear-gradient(135deg, var(--accent-3), var(--bg-color), var(--accent-1));
+    /* Pastel Gradient Background */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Slideshow Decorations */
+.slide-sticker {
+    position: absolute;
+    font-size: 2rem;
+    z-index: 5;
+    opacity: 0.8;
+    animation: float 3s ease-in-out infinite;
+}
+
+.ss-1 {
+    top: 10px;
+    left: 10px;
+    animation-delay: 0s;
+    font-size: 2.5rem;
+}
+
+.ss-2 {
+    bottom: 20px;
+    right: 20px;
+    animation-delay: 1.5s;
+    font-size: 3rem;
+}
+
+.ss-3 {
+    top: 20px;
+    right: 20px;
+    animation-delay: 0.5s;
+}
+
+.ss-4 {
+    bottom: 15px;
+    left: 15px;
+    animation-delay: 2s;
+}
+
+.ss-5 {
+    top: 40%;
+    left: 5px;
+    animation-delay: 1s;
+    font-size: 1.5rem;
+}
+
+.ss-6 {
+    top: 60%;
+    right: 5px;
+    animation-delay: 2.5s;
+    font-size: 1.5rem;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* Media styling inside overlay */
+.media-content video,
+.media-content img {
+    max-width: 100%;
+    max-height: 60vh;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .memories-container {
+        /* Adjust for mobile */
+    }
+
+    .polaroid {
+        width: 150px;
+    }
+
+    .p1 {
+        top: 2%;
+        left: 2%;
+        width: 120px;
+    }
+
+    .p2 {
+        top: 2%;
+        right: 2%;
+        width: 120px;
+    }
+
+    .p3 {
+        bottom: 15%;
+        left: 2%;
+        width: 120px;
+    }
+
+    .p4 {
+        bottom: 15%;
+        right: 2%;
+        width: 120px;
+    }
+
+    .talents-container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .media-display {
+        height: 50vh;
+        order: -1;
+        /* Show image first on mobile */
+    }
+
+    .talent-heading {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .talent-menu {
+        padding-left: 0;
+        align-items: center;
+    }
+}
+
+/* Postcard / Burnt Paper Page */
+.postcard-body {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-image: url('assets/placeholder.svg');
+    /* Reuse texture for desk surface */
+    background-size: cover;
+}
+
+.a4-paper {
+    width: 80%;
+    max-width: 600px;
+    min-height: 80vh;
+    background: #e6cfb3;
+    /* Parchment Base */
+    padding: 3rem;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+    /* Burnt Paper Effect */
+    background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+
+    /* Ragged Edges using Clip Path */
+    clip-path: polygon(2% 0%, 5% 2%, 10% 0%, 15% 3%, 20% 0%, 25% 2%, 30% 0%, 35% 1%, 40% 0%, 45% 2%, 50% 0%, 55% 4%, 60% 0%, 65% 2%, 70% 0%, 80% 3%, 90% 0%, 95% 2%, 100% 0%,
+            100% 5%, 98% 10%, 100% 15%, 97% 20%, 100% 25%, 99% 30%, 100% 35%, 98% 40%, 100% 45%, 97% 50%, 100% 55%, 98% 65%, 100% 70%, 99% 75%, 100% 80%, 98% 85%, 100% 90%, 97% 95%, 100% 100%,
+            95% 98%, 90% 100%, 85% 98%, 80% 100%, 75% 98%, 70% 100%, 65% 97%, 60% 100%, 55% 98%, 50% 100%, 45% 98%, 40% 100%, 35% 98%, 30% 100%, 25% 97%, 20% 100%, 15% 99%, 10% 100%, 5% 98%, 0% 100%,
+            2% 95%, 0% 90%, 3% 85%, 0% 80%, 2% 75%, 0% 70%, 1% 65%, 0% 60%, 2% 55%, 0% 50%, 3% 45%, 0% 40%, 1% 35%, 0% 30%, 2% 25%, 0% 20%, 2% 15%, 0% 10%, 3% 5%, 0% 0%);
+
+    /* Burnt Edges Inner Shadow */
+    box-shadow: inset 0 0 40px 20px rgba(139, 69, 19, 0.6), inset 0 0 10px 5px rgba(0, 0, 0, 0.5);
+    filter: sepia(0.4) contrast(1.1);
+}
+
+/* Pseudo-element for the burnt edge color overlay (since clip-path clips box-shadow) 
+   We simulate it with a gradient on the main element essentially */
+.a4-paper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 60px 30px rgba(101, 67, 33, 0.6);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.letter-content {
+    font-family: 'Dancing Script', cursive;
+    color: #422a10;
+    /* Dark Brown Ink */
+    font-size: 1.6rem;
+    line-height: 1.8;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.letter-date {
+    text-align: right;
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
+    color: #5d4037;
+}
+
+.signature {
+    margin-top: 3rem;
+    text-align: right;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+/* Postcard Button on Page 2 */
+.postcard-btn {
+    margin-top: 25px;
+    padding: 12px 30px;
+    background: #8d6e63;
+    color: #fff;
+    border: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    letter-spacing: 1px;
+    border: 1px solid #5d4037;
+    z-index: 15;
+}
+
+.postcard-btn:hover {
+    transform: translateY(-2px);
+    background: #6d4c41;
+}
+
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 25px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #e6cfb3;
+    border: 1px solid #e6cfb3;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    transition: 0.3s;
+    z-index: 20;
+}
+
+.back-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Outro Page */
+.outro-body {
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    margin: 0;
+}
+
+.outro-container {
+    display: flex;
+    flex-direction: column;
+    /* Stacks image and text vertically */
+    align-items: center;
+    /* Centers them horizontally */
+    justify-content: center;
+    gap: 3rem;
+    /* Space between image and text */
+    padding: 2rem;
+    animation: fadeIn 1s ease-in-out;
+    width: 100%;
+}
+
+.image-frame {
+    padding: 15px;
+    background: white;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    transform: rotate(-2deg);
+    transition: transform 0.3s;
+    max-width: 90%;
+}
+
+.image-frame:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.image-frame img {
+    max-width: 100%;
+    height: auto;
+    max-height: 50vh;
+    /* Limits height to fit screen */
+    border-radius: 10px;
+    display: block;
+    object-fit: contain;
+}
+
+.outro-caption {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3.5rem;
+    /* Big Bold Text */
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--text-color);
+    letter-spacing: 2px;
+    background: linear-gradient(to right, var(--accent-1), #ff9a9e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+    margin-top: 10px;
+}
+
+.restart-btn {
+    padding: 12px 35px;
+    border: 3px solid var(--accent-3);
+    background: transparent;
+    color: var(--accent-3);
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    font-family: 'Outfit', sans-serif;
+    font-weight: bold;
+    margin-top: 2rem;
+}
+
+.restart-btn:hover {
+    background: var(--accent-3);
+    color: white;
+    transform: scale(1.05);
+}

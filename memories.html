@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memories</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Rye&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="memories-container">
+        <!-- Background Image -->
+        <img src="assets/placeholder.svg" alt="Upload bg_texture.jpg here" class="memories-bg">
+
+        <!-- Floating Photos (Corners) -->
+        <div class="photo-scatter">
+            <div class="polaroid p1">
+                <img src="assets/placeholder.svg" alt="Upload photo1.jpg here">
+            </div>
+            <div class="polaroid p2">
+                <img src="assets/placeholder.svg" alt="Upload photo2.jpg here">
+            </div>
+            <div class="polaroid p3">
+                <img src="assets/placeholder.svg" alt="Upload photo3.png here">
+            </div>
+            <div class="polaroid p4">
+                <img src="assets/placeholder.svg" alt="Upload photo4.png here">
+            </div>
+            <div class="polaroid p5">
+                <img src="assets/placeholder.svg" alt="Upload photo5.png here">
+            </div>
+            <div class="polaroid p6">
+                <img src="assets/placeholder.svg" alt="Upload photo6.png here">
+            </div>
+        </div>
+
+        <!-- Center Piece: Retro Camera with Red Paper BG -->
+        <div class="center-piece">
+            <div class="red-paper-bg"></div>
+
+            <h1 class="center-title top">HAPPY</h1>
+
+            <div class="camera-body">
+                <div class="shutter-btn"></div>
+                <div class="brand"></div>
+                <div class="camera-flash"></div>
+                <div class="camera-lens-decoration"></div>
+                <div class="camera-screen">
+                    <img src="assets/placeholder.svg" alt="Upload camera_photo.jpg here" class="screen-img">
+                </div>
+            </div>
+
+            <!-- Decorative Stickers -->
+            <div class="center-sticker s1">🎀</div>
+            <div class="center-sticker s2">✨</div>
+            <div class="center-sticker s3">🐱</div>
+            <div class="center-sticker s4">🌸</div>
+
+            <h1 class="center-title bottom">BIRTHDAY</h1>
+            <button class="postcard-btn" onclick="navigateTo('postcard.html')">✉️ VIEW POSTCARD</button>
+        </div>
+
+        <button class="next-btn" onclick="navigateTo('talents.html')">Next &rarr;</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

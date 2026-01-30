@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anything & Everything</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="talents-container">
+        <div class="talent-menu">
+            <h1 class="talent-heading">She’s not just one thing…<br>she’s everything</h1>
+            <div class="menu-buttons">
+                <button class="talent-btn" onclick="showContent('singer')">Singer</button>
+                <button class="talent-btn" onclick="showContent('artist')">Artist</button>
+                <button class="talent-btn" onclick="showContent('coder')">Codder & Topper</button>
+                <button class="talent-btn" onclick="showContent('actor')">Actor</button>
+                <button class="talent-btn" onclick="showContent('dancer')">Dancer</button>
+            </div>
+        </div>
+
+        <div class="media-display">
+            <!-- Main Image Placeholder -->
+            <!-- Main Image Slideshow -->
+            <div class="slideshow-container">
+                <img src="assets/placeholder.svg" alt="Upload s1.png" class="slide active"> <!-- Start Image -->
+                <img src="assets/placeholder.svg" alt="Upload s2.png" class="slide">
+
+                <img src="assets/placeholder.svg" alt="Upload s4.jpg" class="slide">
+                <img src="assets/placeholder.svg" alt="Upload main.png" class="slide">
+
+                <!-- Decorations for empty space -->
+                <div class="slide-sticker ss-1">✨</div>
+                <div class="slide-sticker ss-2">🦋</div>
+                <div class="slide-sticker ss-3">💖</div>
+                <div class="slide-sticker ss-4">🌸</div>
+                <div class="slide-sticker ss-5">⭐</div>
+                <div class="slide-sticker ss-6">🫧</div>
+            </div>
+
+            <!-- Overlay for Content (Hidden by default) -->
+            <div class="content-overlay" id="overlay">
+                <div class="close-overlay" onclick="closeOverlay()">✕</div>
+                <div class="media-content" id="media-content">
+                    <!-- Content injected via JS -->
+                </div>
+            </div>
+
+            <button class="next-btn" style="position: fixed; bottom: 30px; right: 30px;"
+                onclick="navigateTo('outro.html')">Finish &rarr;</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
